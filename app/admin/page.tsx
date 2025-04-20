@@ -4,16 +4,15 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 export default function AdminPage() {
-  // Default configuration for Step 2
   const defaultConfig = {
-    fullName: true, // Default to requiring Full Name
-    aboutMe: false, // Default to not requiring About Me
+    fullName: true, 
+    aboutMe: false, 
     birthdate: false,
   };
 
   const [step2Config, setStep2Config] = useState(defaultConfig);
 
-  // Handle checkbox changes
+
   const handleCheckboxChange = (component: 'fullName' | 'aboutMe' | 'birthdate') => {
     setStep2Config((prevConfig) => ({
       ...prevConfig,
