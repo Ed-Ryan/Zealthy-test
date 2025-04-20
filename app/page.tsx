@@ -33,9 +33,6 @@ export default function HomePage() {
             </button>
             {showWaffleMenu && (
             <div className="waffle-dropdown">
-                //<a href="/">Home</a>
-                //<a href="/admin">Admin</a>
-                //<a href="/data">Data</a>
               <Link href="/">Home</Link>
               <Link href="/admin">Admin</Link>
               <Link href="/data">Data</Link>
