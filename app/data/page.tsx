@@ -78,6 +78,8 @@ export default function DataPage() {
       </div>
 
       {/* User Table */}
+      
+
       <div className="table-container">
         <table className="user-table">
           <thead>
@@ -87,15 +89,22 @@ export default function DataPage() {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
-              <tr key={index}>
-                <td>{user.firstName}</td>
-                <td>{user.lastName}</td>
+            {Array.isArray(users) && users.length > 0 ? (
+              users.map((user, index) => (
+                <tr key={index}>
+                  <td>{user.firstName}</td>
+                  <td>{user.lastName}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan={2}>No users found.</td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </div>
+
 
       {/* Footer */}
       <footer className="footer">
