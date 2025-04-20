@@ -8,10 +8,10 @@ import Link from 'next/link';
 export default function Step2Page() {
   const router = useRouter();
 
-  // State for admin configuration
+  
   const [config, setConfig] = useState({ fullName: false, aboutMe: false, birthdate: false  });
 
-  // State for form data
+  
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -21,12 +21,12 @@ export default function Step2Page() {
   });
 
   useEffect(() => {
-    // Fetch the admin configuration
+    
     const fetchConfig = async () => {
       try {
         const response = await fetch('/api/get-config');
         const data = await response.json();
-        setConfig(data.step2Config); // Apply the configuration to the page
+        setConfig(data.step2Config); 
       } catch (error) {
         console.error('Error fetching configuration:', error);
       }
@@ -35,7 +35,7 @@ export default function Step2Page() {
     fetchConfig();
   }, []);
 
-  // Handle input changes
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -47,17 +47,12 @@ export default function Step2Page() {
         setShowWaffleMenu(!showWaffleMenu);
       };
 
-  /*// Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form Data:', formData); // Replace with API call to save form data
-    router.push('/onboarding/step3'); // Navigate to Step 3
-  };*/
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
   
     try {
-      // Send the form data to the backend API to save the user
+      
       const response = await fetch('/api/submit-user', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -66,7 +61,7 @@ export default function Step2Page() {
   
       if (response.ok) {
         console.log('User data saved successfully');
-        router.push('/onboarding/step3'); // Navigate to Step 3 on success
+        router.push('/onboarding/step3'); 
       } else {
         console.error('Error saving user data:', response.statusText);
       }
