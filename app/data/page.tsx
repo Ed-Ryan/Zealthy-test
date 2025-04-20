@@ -2,6 +2,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 interface User {
   firstName: string;
@@ -44,12 +45,12 @@ export default function DataPage() {
       {/* Header */}
       <header className="header">
         <div className="header-left">
-          <a href="https://linkedin.com/in/edward-b-ryan" target="_blank" rel="noopener noreferrer">
+          <Link href="https://linkedin.com/in/edward-b-ryan" target="_blank" rel="noopener noreferrer">
             <img src="/linkedIn.png" alt="LinkedIn" className="header-icon" />
-          </a>
-          <a href="https://ed-ryan.github.io/" target="_blank" rel="noopener noreferrer">
+          </Link>
+          <Link href="https://ed-ryan.github.io/" target="_blank" rel="noopener noreferrer">
             <img src="/github.png" alt="GitHub" className="header-icon" />
-          </a>
+          </Link>
         </div>
         <h1 className="header-title">User Dashboard</h1>
       </header>
