@@ -1,6 +1,8 @@
 
 
-import prisma from '@/lib/prisma';
+//import prisma from '@/lib/prisma';
+import prisma from '../../lib/prisma'; // Adjust relative to your file
+
 import { NextResponse } from 'next/server';
 
 export async function GET() {
