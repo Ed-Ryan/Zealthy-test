@@ -16,12 +16,12 @@ export default function HomePage() {
       {/* Header */}
       <header className="header">
         <div className="header-left">
-            <a href="https://linkedin.com/in/edward-b-ryan" target="_blank" rel="noopener noreferrer">
+            <Link href="https://linkedin.com/in/edward-b-ryan" target="_blank" rel="noopener noreferrer">
             <img src="/linkedIn.png" alt="LinkedIn" className="header-icon" />
-            </a>
-            <a href="https://ed-ryan.github.io/" target="_blank" rel="noopener noreferrer">
+            </Link>
+            <Link href="https://ed-ryan.github.io/" target="_blank" rel="noopener noreferrer">
             <img src="/github.png" alt="GitHub" className="header-icon" />
-            </a>
+            </Link>
         </div>
         <h1 className="header-title">User Onboarding App</h1>
         <div className="waffle-menu">
@@ -81,9 +81,9 @@ export default function HomePage() {
 
       {/* Start Onboarding Button */}
       <div className="welcome-content">
-        <a href="/onboarding" className="welcome-button">
+        <Link href="/onboarding" className="welcome-button">
           Start Onboarding
-        </a>
+        </Link>
       </div>
 
       {/* About Us Section */}
