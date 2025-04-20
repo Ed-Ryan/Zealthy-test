@@ -9,7 +9,7 @@ import Link from 'next/link';
 export default function EmailPasswordPage() {
   const router = useRouter();
 
-  // States for form data and validation messages
+  
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -18,18 +18,18 @@ export default function EmailPasswordPage() {
   const [passwordErrors, setPasswordErrors] = useState<string[]>([]);
   const [showWaffleMenu, setShowWaffleMenu] = useState(false);
 
-  // Handle input changes
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  // Validate password format
+  
   const handlePasswordInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setFormData((prevData) => ({ ...prevData, password: value }));
 
-    // Check password rules
+    
     const errors = [];
     if (value.length < 8) errors.push("Must be at least 8 characters long.");
     if (!/[A-Z]/.test(value)) errors.push("Must include an uppercase letter.");
@@ -40,11 +40,11 @@ export default function EmailPasswordPage() {
     setPasswordErrors(errors);
   };
 
-  // Handle form submission
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Simulate API call to check if email exists in the database
+    
     const response = await fetch('/api/check-email', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -56,7 +56,6 @@ export default function EmailPasswordPage() {
       setEmailExists(true);
     } else {
       setEmailExists(false);
-      // Proceed to the next step (Step 2)
       router.push('/onboarding/step2');
     }
   };
