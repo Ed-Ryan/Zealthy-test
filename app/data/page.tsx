@@ -27,6 +27,7 @@ export default function DataPage() {
     const fetchData = async () => {
       try {
         const response = await fetch('/api/get-users');
+        if (!response.ok) throw new Error(`Fetch failed with status ${response.status}`);
         const data = await response.json();
 
         
