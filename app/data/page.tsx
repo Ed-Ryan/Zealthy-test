@@ -34,6 +34,8 @@ export default function DataPage() {
         setTotalUsers(data.totalUsers); 
       } catch (error) {
         console.error('Error fetching user data:', error);
+        setUsers([]);         // fallback to avoid .map() on undefined
+      setTotalUsers(0);
       }
     };
 
