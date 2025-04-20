@@ -1,0 +1,35 @@
+datasource db {
+  provider = "sqlite" // Or "postgresql", depending on your setup
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  firstName String?
+  lastName  String?
+  birthdate String
+  aboutMe   String?
+  createdAt DateTime @default(now()) // Automatically sets the timestamp
+  address   Address? @relation(fields: [addressId], references: [id])
+  addressId Int?  @unique
+}
+
+
+model Address {
+  id      Int     @id @default(autoincrement())
+  street  String
+  city    String
+  state   String
+  zip     String
+  user    User?   @relation
+}
+
+model Configuration {
+  id        Int     @id @default(autoincrement())
+  step2Config Json  @unique
+}
