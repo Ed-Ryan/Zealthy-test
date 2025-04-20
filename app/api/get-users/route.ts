@@ -1,9 +1,6 @@
-
-
-//import prisma from '@/lib/prisma';
-import prisma from '../../../lib/prisma'; // Adjust relative to your file
-
+// app/api/get-users/route.ts
 import { NextResponse } from 'next/server';
+import prisma from '../../../lib/prisma'; // double check the path
 
 export async function GET() {
   try {
@@ -11,28 +8,18 @@ export async function GET() {
       select: {
         firstName: true,
         lastName: true,
-        email: true,
-        birthdate: true,
-        aboutMe: true,
-        createdAt: true,
-        addressId: true, // Only include fields that exist in the schema
       },
     });
-    
 
-    const totalUsers = users.length;
-
-    // Calculate monthly users based on `createdAt`
-    const monthlyUsers = users.filter((user) => {
-      const userDate = new Date(user.createdAt); // Ensure `createdAt` exists
-      const currentMonth = new Date().getMonth();
-      const currentYear = new Date().getFullYear();
-      return userDate.getMonth() === currentMonth && userDate.getFullYear() === currentYear;
-    }).length;    
-
-    return NextResponse.json({ users, totalUsers, monthlyUsers });
-  } catch (error) {
-    console.error('Error fetching users:', error);
-    return NextResponse.json({ message: 'Error fetching users' }, { status: 500 });
+    return NextResponse.json({
+      users,
+      totalUsers: users.length,
+    });
+  } catch (err: any) {
+    console.error('🔥 API ERROR:', err.message);
+    return NextResponse.json(
+      { message: 'Something went wrong', error: err.message },
+      { status: 500 }
+    );
   }
 }
