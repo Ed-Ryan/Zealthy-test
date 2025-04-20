@@ -10,10 +10,10 @@ interface User {
 }
 
 export default function DataPage() {
-  const [users, setUsers] = useState<User[]>([]); // Fetches users with firstName and lastName
-  const [totalUsers, setTotalUsers] = useState(0); // Total user count
+  const [users, setUsers] = useState<User[]>([]); 
+  const [totalUsers, setTotalUsers] = useState(0);
 
-  // Mocked companies list
+
   const companies = [
     'Icelandair',
     'Wow Air',
@@ -26,12 +26,12 @@ export default function DataPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/get-users'); // API endpoint for fetching users
+        const response = await fetch('/api/get-users');
         const data = await response.json();
 
-        // Set the user data and total count
-        setUsers(data.users); // Assumes `data.users` contains firstName and lastName
-        setTotalUsers(data.totalUsers); // Assumes `data.totalUsers` is provided
+        
+        setUsers(data.users); 
+        setTotalUsers(data.totalUsers); 
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
