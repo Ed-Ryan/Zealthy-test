@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Step2Page() {
   const router = useRouter();
@@ -80,12 +81,12 @@ export default function Step2Page() {
       {/* Header */}
       <header className="header">
         <div className="header-left">
-          <a href="https://linkedin.com/in/edward-b-ryan" target="_blank" rel="noopener noreferrer">
+          <Link href="https://linkedin.com/in/edward-b-ryan" target="_blank" rel="noopener noreferrer">
             <img src="/linkedIn.png" alt="LinkedIn" className="header-icon" />
-          </a>
-          <a href="https://ed-ryan.github.io/" target="_blank" rel="noopener noreferrer">
+          </Link>
+          <Link href="https://ed-ryan.github.io/" target="_blank" rel="noopener noreferrer">
             <img src="/github.png" alt="GitHub" className="header-icon" />
-          </a>
+          </Link>
         </div>
         <h1 className="header-title">User Onboarding App</h1>
         <div className="waffle-menu">
@@ -97,9 +98,9 @@ export default function Step2Page() {
           </button>
           {showWaffleMenu && (
             <div className="waffle-dropdown">
-                <a href="/">Home</a>
-                <a href="/admin">Admin</a>
-                <a href="/data">Data</a>
+                <Link href="/">Home</Link>
+                <Link href="/admin">Admin</Link>
+                <Link href="/data">Data</Link>
             </div>
             )}
         </div>
