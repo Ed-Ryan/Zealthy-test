@@ -1,7 +1,7 @@
 
 
 //import prisma from '@/lib/prisma';
-import prisma from '../../lib/prisma'; // Adjust relative to your file
+import prisma from '../../../lib/prisma'; // Adjust relative to your file
 
 import { NextResponse } from 'next/server';
 
