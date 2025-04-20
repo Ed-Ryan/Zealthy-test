@@ -72,7 +72,7 @@ export default function AddressPage() {
           </button>
           {showWaffleMenu && (
             <div className="waffle-dropdown">
-                <Link href="/">Home</link>
+                <Link href="/">Home</Link>
                 <Link href="/admin">Admin</Link>
                 <Link href="/data">Data</Link>
             </div>
